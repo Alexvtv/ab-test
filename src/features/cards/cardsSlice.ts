@@ -3,12 +3,17 @@ import {RootState} from '../../app/store';
 
 type CardsStateT = {
     list:Array<{
-        'state-province':string,
-        'country':string,
-        'web_pages':Array<string>,
-        'name':string,
-        'alpha_two_code':string,
-        'domains':Array<string>,
+        'source':{
+            'id':string,
+            'name':string
+        },
+        'author':string,
+        'title':string,
+        'description':string,
+        'url':string,
+        'urlToImage':string,
+        'publishedAt':string,
+        'content':string,
         id:number
     }>,
     isLoading:boolean,

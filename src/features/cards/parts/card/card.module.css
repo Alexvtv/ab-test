@@ -24,13 +24,17 @@
     color: #474747;
 }
 
-.name {
+.description {
     margin: auto 0;
     font-size: 17px;
     line-height: 22px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
 }
 
-.country {
+.time {
     position: absolute;
     bottom: 0;
     font-size: 14px;

@@ -11,12 +11,17 @@ import styles from './card.module.css';
 
 type dataT = {
     data:{
-        'state-province':string,
-        'country':string,
-        'web_pages':Array<string>,
-        'name':string,
-        'alpha_two_code':string,
-        'domains':Array<string>,
+        'source':{
+            'id':string,
+            'name':string
+        },
+        'author':string,
+        'title':string,
+        'description':string,
+        'url':string,
+        'urlToImage':string,
+        'publishedAt':string,
+        'content':string,
         id:number
     }
 }
@@ -25,13 +30,16 @@ export const Card = ({data}:dataT) => {
     const dispatch = useAppDispatch();
     const likedCards = useAppSelector(selectLikedCards);
 
-    const {id, name, country} = data;
+    console.log(data);
+
+    const {id, publishedAt, description} = data;
+    const date = new Date(publishedAt);
 
     return (
         <div className={styles.card}>
             <div className={styles.cross} onClick={() => dispatch(deleteCard(id))}>&#x2716;</div>
-            <p className={styles.name}>{name}</p>
-            <p className={styles.country}>{country}</p>
+            <p className={styles.description}>{description}</p>
+            <p className={styles.time}>{date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()}</p>
             <img
                 onClick={() => dispatch(likeCard(id))}
                 src={'/like.png'}

@@ -6,22 +6,30 @@ import {uploadData} from './features/cards/cardsSlice';
 
 import './App.css';
 
-type UniversityT = {
-    'state-province':string,
-    'country':string,
-    'web_pages':Array<string>,
-    'name':string,
-    'alpha_two_code':string,
-    'domains':Array<string>,
+type NewsT = {
+    'source':{
+        'id':string,
+        'name':string
+    },
+    'author':string,
+    'title':string,
+    'description':string,
+    'url':string,
+    'urlToImage':string,
+    'publishedAt':string,
+    'content':string
 }
 
 function App() {
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        fetch('http://universities.hipolabs.com/search?country=Russian+Federation')
+        fetch('https://newsapi.org/v2/everything?q=tesla&from=2021-11-07&sortBy=publishedAt&apiKey=914d81882b564f5288824c8f340ab766')
             .then(response => response.json())
-            .then(data => dispatch(uploadData(data.map((university:UniversityT, index:number) => ({...university, id: index})))))
+            .then(({articles}) => dispatch(uploadData(articles.map((university:NewsT, index:number) => ({
+                ...university,
+                id: index
+            })))))
             .catch(err => {
                 console.error(err, 'err');
             });

@@ -23,7 +23,7 @@ export const Cards = () => {
                 <p className={styles.filterText}>фильтр</p>
                 <img
                     onClick={() => dispatch(changeFiltering())}
-                    src={'/like.png'}
+                    src={'like.png'}
                     alt={''}
                     className={styles.like}
                     style={isFiltering ? {} : {filter: 'grayscale(100%)'}}/>
