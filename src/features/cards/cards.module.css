@@ -1,0 +1,80 @@
+.container {
+    width: 1100px;
+    overflow: hidden;
+}
+@media (max-width: 1200px) {
+    .container {
+        width: 768px;
+    }
+}
+@media (max-width: 820px) {
+    .container {
+        width: 576px;
+    }
+}
+@media (max-width: 620px) {
+    .container {
+        width: 400px;
+    }
+}
+@media (max-width: 440px) {
+    .container {
+        width: 320px;
+    }
+}
+
+.filterPanel {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background-color: #ffffff;
+    border-radius: 0 0 6px 0;
+    box-shadow: 4px 4px 8px 0 rgba(34, 50, 50, 0.4);
+}
+
+.filterText {
+    padding: 6px 65px 8px 20px;
+    margin: 0;
+    font-size: 23px;
+}
+
+.like {
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 6px;
+    width: 26px;
+    height: 26px;
+    padding: 3px;
+}
+
+.listWrapper {
+    box-sizing: border-box;
+    height: 100vh;
+    padding: 50px 0 20px;
+    overflow-y: auto;
+}
+
+.list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.showMoreButton {
+    cursor: pointer;
+    margin-top: 20px;
+    border: 2px solid #d9d9d9;
+    background-color: #ffffff;
+    transition: 0.2s;
+    font-size: 23px;
+    padding: 5px 15px;
+}
+.showMoreButton:hover {
+    background-color: #d9d9d9;
+}
+
